@@ -1,7 +1,6 @@
 import React from 'react';
 
-const MovieList = () => {
-
+const NotFoundPage = () => {
     return (
         <div>
 
@@ -9,4 +8,4 @@ const MovieList = () => {
     );
 };
 
-export {MovieList};
+export {NotFoundPage};
