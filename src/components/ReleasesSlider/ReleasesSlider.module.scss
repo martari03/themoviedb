@@ -1,0 +1,53 @@
+@import "src/App.module";
+
+.releases {
+
+  &__movies {
+    position: relative;
+
+    &::after {
+      content: '';
+      background: linear-gradient(269.66deg, $background 3.45%, rgba(29, 29, 29, 0) 15%);
+      width: 100%;
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      pointer-events: none;
+    }
+
+    :global(.swiper-slide) {
+      min-width: 290px;
+      display: block;
+    }
+
+    :global(.swiper-button-prev),
+    :global(.swiper-button-next) {
+      color: $default;
+      transition: opacity 0.5s;
+      z-index: 10;
+
+      &::after {
+        font-size: 16px;
+        font-weight: 800;
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  :global(.swiper-button-next) {
+    right: 75px;
+  }
+
+  &__skeleton {
+    background-color: rgb(58, 58, 58);
+    box-shadow: 0 0 15px 4px rgba(58, 58, 58, 0.27);
+  }
+}

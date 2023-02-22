@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Routes} from "react-router-dom";
+import {Navigate, Route, Routes} from "react-router-dom";
 
 import './App.css';
 import {MainLayout} from "./layouts";
@@ -9,8 +9,9 @@ const App = () => {
     return (
         <Routes>
             <Route path={'/'} element={<MainLayout/>}>
-                <Route index element={<MoviesPage/>}>
-                    <Route path={'movie/:id'} element={<MovieInfoPage/>}/>
+                <Route index element={<Navigate to={'movie'}/>}/>
+                <Route path={'movie'} element={<MoviesPage/>}>
+                    <Route path={':id'} element={<MovieInfoPage/>}/>
                 </Route>
                 <Route path={'*'} element={<NotFoundPage/>}/>
             </Route>

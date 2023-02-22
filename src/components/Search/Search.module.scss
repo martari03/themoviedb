@@ -1,0 +1,60 @@
+@import "../../App.module";
+
+
+.search {
+  max-width: 350px;
+  width: 100%;
+  position: relative;
+
+  &__input {
+    padding: 10px 25px 10px 15px;
+    background-color: var(--input);
+    border: 1px solid $categoryColor;
+    max-width: 350px;
+    width: 100%;
+    outline: none;
+    color: var(--text-primary);
+    position: relative;
+    transition: opacity 0.5s, color 0.5s, background-color 0.5s;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    display: block;
+    border: none;
+    transition: opacity 0.5s;
+
+    &::before,
+    &::after {
+      content: '';
+      height: 15px;
+      width: 2px;
+      background-color: $categoryColor;
+      position: absolute;
+      right: 10px;
+      bottom: -6px;
+    }
+
+    &::before {
+      transform: rotateZ(45deg);
+    }
+
+    &::after {
+      transform: rotateZ(-45deg);
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      opacity: 0.5;
+    }
+  }
+}

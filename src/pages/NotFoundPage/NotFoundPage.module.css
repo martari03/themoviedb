@@ -1,0 +1,30 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    color: gray;
+    grid-gap: 10px;
+}
+
+.error {
+    font-size: 80px;
+}
+
+.message, .btn {
+    font-size: 32px;
+}
+
+.btn {
+    text-decoration: none;
+    color: gray;
+    border: 1px solid gray;
+    padding: 10px;
+    background-color: rgba(128, 128, 128, 0.18);
+    transition: opacity 0.5s;
+}
+
+.btn:hover {
+    opacity: 0.5;
+}

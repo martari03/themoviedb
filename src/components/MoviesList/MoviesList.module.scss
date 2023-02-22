@@ -1,0 +1,67 @@
+@import "../../App.module";
+@import "../MovieCard/MovieCard.module";
+
+.movies {
+
+  &__inner {
+    padding: 25px 10px;
+  }
+
+  &__title {
+    font-size: 24px;
+
+    &:hover,
+    &:focus,
+    &:active {
+      opacity: 1;
+
+      &::after {
+        transform: translateX(0);
+      }
+    }
+
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 290px);
+    grid-template-rows: repeat(auto-fill, 440px);
+    grid-gap: 35px 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+
+  &__item {
+    box-shadow: 0 0 22px 4px rgba(0, 232, 220, 0.27);
+    transition: all 0.5s;
+
+    &:hover {
+      box-shadow: 0 0 22px 4px rgba(151, 24, 162, 0.27);
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  :global(.MuiPagination-ul) {
+    justify-content: center;
+  }
+
+  :global(.MuiButtonBase-root) {
+    background-color: rgb(58, 58, 58);
+    color: $categoryColor;
+    font-size: 20px;
+    min-width: 50px;
+    height: 50px;
+  }
+
+  &__skeleton {
+    color: $categoryColor;
+    background-color: rgba(0, 232, 220, 0.27);
+    box-shadow: 0 0 22px 4px rgba(0, 232, 220, 0.27);
+    font-size: 18px;
+  }
+}
