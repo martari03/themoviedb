@@ -7,7 +7,7 @@ import css from "./ShowsSlider.module.scss";
 
 import {Skeleton} from "../Skeleton/Skeleton";
 import {moviesCategories} from "../../services";
-import {MovieCard} from "../MovieCard/MovieCard";
+import {MovieListCard} from "../MovieListCard/MovieListCard";
 import {genreActions, movieActions} from "../../redux";
 
 const ShowsSlider = () => {
@@ -18,8 +18,8 @@ const ShowsSlider = () => {
     const {results} = moviesNowPlaying;
 
     useEffect(() => {
-        dispatch(genreActions.getAll());
-        dispatch(movieActions.getAllNowPlaying({moviesType: moviesCategories.moviesFor('now_playing')}));
+        dispatch(genreActions.getAllGenres);
+        dispatch(movieActions.getAllNowPlayingMovies({moviesType: moviesCategories.moviesFor('now_playing')}));
     }, [dispatch]);
 
     return (
@@ -41,12 +41,12 @@ const ShowsSlider = () => {
                                     {isLoading ?
                                         <Skeleton key={movie.id} amount={1} styleCard={css.shows__skeleton}/>
                                         :
-                                        <MovieCard key={movie.id}
-                                                   movie={movie}
-                                                   styleCard={css.shows__movie}
-                                                   styleTitle={css.shows__title}
-                                                   styleGenre={css.shows__genre}
-                                                   genres={genres.genres}/>
+                                        <MovieListCard key={movie.id}
+                                                       movie={movie}
+                                                       styleCard={css.shows__movie}
+                                                       styleTitle={css.shows__title}
+                                                       styleGenre={css.shows__genre}
+                                                       genres={genres.genres}/>
                                     }
                                 </SwiperSlide>
                             )

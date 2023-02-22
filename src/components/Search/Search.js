@@ -3,7 +3,7 @@ import {useDispatch} from "react-redux";
 
 import css from './Search.module.scss';
 
-import {filterActions} from "../../redux";
+import {searchActions} from "../../redux";
 
 const Search = () => {
     const dispatch = useDispatch();
@@ -12,14 +12,14 @@ const Search = () => {
     const inputRef = useRef(null);
 
     const onClickClear = () => {
-        dispatch(filterActions.setSearchValue(''));
+        dispatch(searchActions.setSearchValue(''));
         setValueIn('');
         inputRef.current.focus();
     };
 
     const onChangeInput = (event) => {
         setValueIn(event.target.value);
-        dispatch(filterActions.setSearchValue(event.target.value));
+        dispatch(searchActions.setSearchValue(event.target.value));
     };
 
     return (

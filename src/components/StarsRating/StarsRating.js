@@ -1,9 +1,10 @@
-import React from 'react';
+import {Rating} from "@mui/material";
 
-const StarsRating = () => {
+const StarsRating = ({value}) => {
+
     return (
-        <div>
-
+        <div className={'rating'}>
+            <Rating name="read-only" value={value} readOnly precision={0.5}/>
         </div>
     );
 };

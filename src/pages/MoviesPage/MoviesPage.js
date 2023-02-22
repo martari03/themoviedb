@@ -1,10 +1,13 @@
-import React from 'react';
+import {MainSlider, MovieList, ReleasesSlider, ShowsSlider} from "../../components";
 
 const MoviesPage = () => {
     return (
-        <div>
-
-        </div>
+        <>
+            <MainSlider/>
+            <ReleasesSlider/>
+            <MovieList/>
+            <ShowsSlider/>
+        </>
     );
 };
 

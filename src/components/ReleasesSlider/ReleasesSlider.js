@@ -11,7 +11,7 @@ import css from "./ReleasesSlider.module.scss";
 import {genreActions, movieActions} from "../../redux";
 import {Skeleton} from "../Skeleton/Skeleton";
 import {moviesCategories} from "../../services";
-import {MovieCard} from "../MovieCard/MovieCard";
+import {MovieListCard} from "../MovieListCard/MovieListCard";
 
 
 const ReleasesSlider = () => {
@@ -22,8 +22,8 @@ const ReleasesSlider = () => {
     const {results} = moviesUpcoming;
 
     useEffect(() => {
-        dispatch(genreActions.getAll());
-        dispatch(movieActions.getAllUpcoming({moviesType: moviesCategories.moviesFor('upcoming')}));
+        dispatch(genreActions.getAllGenres);
+        dispatch(movieActions.getAllUpcomingMovies({moviesType: moviesCategories.moviesFor('upcoming')}));
     }, [dispatch]);
 
     return (
@@ -47,7 +47,7 @@ const ReleasesSlider = () => {
                                     {isLoading ?
                                         <Skeleton key={movie.id} amount={1} styleCard={css.releases__skeleton}/>
                                         :
-                                        <MovieCard key={movie.id} movie={movie} genres={genres.genres}/>
+                                        <MovieListCard key={movie.id} movie={movie} genres={genres.genres}/>
                                     }
                                 </SwiperSlide>
                             )
