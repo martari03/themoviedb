@@ -1,8 +1,6 @@
 import {useRef, useState} from "react";
 import {useDispatch} from "react-redux";
 
-import css from './Search.module.scss';
-
 import {searchActions} from "../../redux";
 
 const Search = () => {
@@ -23,15 +21,15 @@ const Search = () => {
     };
 
     return (
-        <label className={css.search} style={{display: "flex"}}>
-            <input className={css.search__input}
+        <label className={'css.search'} style={{display: "flex"}}>
+            <input className={'css.search__input'}
                    type="text"
                    ref={inputRef}
                    value={valueIn} onChange={onChangeInput}
                    placeholder={'Search...'}/>
             {
                 valueIn && (
-                    <button className={css.search__btn} onClick={onClickClear}/>
+                    <button className={'css.search__btn'} onClick={onClickClear}/>
                 )
             }
         </label>

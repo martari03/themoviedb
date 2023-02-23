@@ -3,7 +3,7 @@ import {useSelector} from "react-redux";
 import {GenreFilter} from "../GenreFilter/GenreFilter";
 
 const GenresFilter = () => {
-    const {genres} = useSelector(state => state.genre);
+    const {genres} = useSelector(state => state.genres);
     const getGenres = genres.genres;
 
     return (

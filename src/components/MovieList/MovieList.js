@@ -1,5 +1,5 @@
 import {Pagination} from "@mui/material";
-import {useEffect, useState} from "react";
+import {useEffect, useMemo, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
 import {Search} from "../Search/Search";
@@ -11,15 +11,15 @@ import {moviesCategories, movieService} from "../../services";
 
 const MovieList = () => {
     const dispatch = useDispatch();
-    const {genres} = useSelector(state => state.genre);
-    const {searchValue, totalPages, currentPage, currentGenre} = useSelector(state => state.filter);
+    const {genres} = useSelector(state => state.genres);
+    const {searchValue, totalPages, currentPage, currentGenre} = useSelector(state => state.search);
 
     const [foundMovies, setFoundMovies] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
     const {results, total_pages} = foundMovies;
 
-    const getSearchMovies = async () => {
+    const getSearchMovies = useMemo(async () => {
         if (searchValue) {
             try {
                 const {data} = await movieService.searchMovies(moviesCategories.search(searchValue, currentPage));
@@ -29,9 +29,9 @@ const MovieList = () => {
                 alert('error!');
             }
         }
-    };
+    }, [dispatch, searchValue, currentPage]);
 
-    const getMovies = async () => {
+    const getMovies = useMemo(async () => {
         try {
             setIsLoading(true);
             const {data} = await movieService.getAllMovies(moviesCategories.moviesFor(
@@ -44,18 +44,13 @@ const MovieList = () => {
         } catch (e) {
             alert('error!');
         }
-    };
-
-    useEffect(() => {
-        getMovies();
-        getSearchMovies();
-    }, [getMovies, getSearchMovies, searchValue, currentPage, currentGenre]);
+    }, [currentGenre, currentPage]);
 
     useEffect(() => {
         if (total_pages) {
             dispatch(searchActions.setTotalPages(total_pages));
         }
-    }, [total_pages, dispatch]);
+    }, [total_pages, dispatch, getSearchMovies, getMovies]);
 
     const filteredMovies = results && results.filter(movie => movie.title.toLowerCase().includes(searchValue.toLowerCase()))
 

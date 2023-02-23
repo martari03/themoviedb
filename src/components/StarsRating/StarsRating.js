@@ -4,7 +4,7 @@ const StarsRating = ({value}) => {
 
     return (
         <div className={'rating'}>
-            <Rating name="read-only" value={value} readOnly precision={0.5}/>
+            <Rating name="read-only" value={value} readOnly precision={0.1} max={10}/>
         </div>
     );
 };

@@ -1,31 +1,29 @@
 import {Link} from "react-router-dom";
 
-import css from "../MainSlider/MainSlider.module.scss";
-
 import {GenreBadge} from "../GenreBadge/GenreBadge";
-import {RatingForMovie} from "../RatingForMovie/RatingForMovie";
+import {StarsRating} from "../StarsRating/StarsRating";
+import {urls} from "../../configs";
 
 const MainSlide = ({movie: {id, backdrop_path, original_title, overview, vote_average, genre_ids}, genres}) => {
-    const img = `https://image.tmdb.org/t/p/original/${backdrop_path}`;
-    const rating = vote_average / 2;
+    const img = `${urls.imgBase}original/${backdrop_path}`;
 
     return (
-        <li className={css.mainScreen__background}
+        <li className={'css.mainScreen__background'}
             style={{backgroundImage: `url(${img})`}}>
-            <div className={css.container}>
-                <div className={css.mainScreen__info}>
+            <div className={'css.container'}>
+                <div className={'css.mainScreen__info'}>
                     <GenreBadge genreIds={genre_ids} genres={genres}/>
-                    <RatingForMovie value={rating}/>
-                    <h1 className={`${css.mainScreen__title} ${css.title}`}>
+                    <StarsRating value={vote_average}/>
+                    <h1 className={`${'css.mainScreen__title'} ${'css.title'}`}>
                         {original_title}
                     </h1>
-                    <div className={css.mainScreen__description}>
+                    <div className={'css.mainScreen__description'}>
                         <p>
                             {overview}
                         </p>
                     </div>
-                    <button className={`${css.button}`} type={'button'}>
-                        <Link to={`movie/${id}`}>
+                    <button className={`${'css.button'}`} type={'button'}>
+                        <Link to={`${id}`}>
                             Watch Now
                         </Link>
                     </button>

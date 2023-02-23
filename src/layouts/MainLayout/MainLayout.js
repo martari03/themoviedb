@@ -3,10 +3,10 @@ import {Outlet} from "react-router-dom";
 
 import {Footer, Header} from "../../components";
 
-const MainLayout = () => {
+const MainLayout = ({switchTheme, theme}) => {
     return (
         <div>
-            <Header/>
+            <Header switchTheme={switchTheme} theme={theme}/>
             <Outlet/>
             <Footer/>
         </div>

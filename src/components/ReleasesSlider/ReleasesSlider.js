@@ -3,10 +3,9 @@ import {Autoplay, Navigation} from "swiper";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {useDispatch, useSelector} from "react-redux";
 
-import 'swiper/scss'
-import 'swiper/scss/navigation'
-import 'swiper/scss/pagination'
-import css from "./ReleasesSlider.module.scss";
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 import {genreActions, movieActions} from "../../redux";
 import {Skeleton} from "../Skeleton/Skeleton";
@@ -16,21 +15,21 @@ import {MovieListCard} from "../MovieListCard/MovieListCard";
 
 const ReleasesSlider = () => {
     const dispatch = useDispatch();
-    const {moviesUpcoming, isLoading} = useSelector(state => state.movie);
-    const {genres} = useSelector(state => state.genre);
+    const {moviesUpcoming, isLoading} = useSelector(state => state.movies);
+    const {genres} = useSelector(state => state.genres);
 
     const {results} = moviesUpcoming;
 
     useEffect(() => {
-        dispatch(genreActions.getAllGenres);
+        dispatch(genreActions.getAllGenres());
         dispatch(movieActions.getAllUpcomingMovies({moviesType: moviesCategories.moviesFor('upcoming')}));
     }, [dispatch]);
 
     return (
-        <section className={css.releases}>
-            <div className={css.container}>
-                <div className={css.category}>New releases</div>
-                <ul className={css.releases__movies}>
+        <section className={'css.releases'}>
+            <div className={'css.container'}>
+                <div className={'css.category'}>New releases</div>
+                <ul className={'css.releases__movies'}>
                     <Swiper
                         slidesPerView={5.5}
                         spaceBetween={60}
@@ -45,7 +44,7 @@ const ReleasesSlider = () => {
                             genres && results && results.map((movie) =>
                                 <SwiperSlide key={movie.id} virtualIndex={movie.id}>
                                     {isLoading ?
-                                        <Skeleton key={movie.id} amount={1} styleCard={css.releases__skeleton}/>
+                                        <Skeleton key={movie.id} amount={1} styleCard={'css.releases__skeleton'}/>
                                         :
                                         <MovieListCard key={movie.id} movie={movie} genres={genres.genres}/>
                                     }
