@@ -86,7 +86,7 @@ const MovieList = () => {
                     count={totalPages}
                     variant="outlined"
                     page={currentPage}
-                    shape="rounded"
+                    shape="circular"
                     onChange={(_, num) => dispatch(searchActions.setCurrentPage(num))}
                 />
             </div>

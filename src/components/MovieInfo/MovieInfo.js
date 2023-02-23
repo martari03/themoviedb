@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {useNavigate, useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 
 import {movieService} from "../../services";
 import {StarsRating} from "../../components";
@@ -28,6 +28,7 @@ const MovieInfo = () => {
 
     return (
         <div>
+            <Link to={'/'}>Back</Link>
             {
                 video.length !== 0 ?
                     <section className={'css.movie'} style={{backgroundImage: `url(${img})`}}>
