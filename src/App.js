@@ -7,7 +7,7 @@ import {MainLayout} from "./layouts";
 import {MovieInfoPage, MoviesPage, NotFoundPage} from "./pages";
 
 const App = () => {
-    const [theme, setTheme] = useLocalStorage('theme' ? 'light' : 'dark');
+    const [theme, setTheme] = useLocalStorage('theme', 'dark');
 
     const switchTheme = () => {
         const newTheme = theme === 'dark' ? 'light' : 'dark';
@@ -15,7 +15,7 @@ const App = () => {
     }
 
     return (
-        <div className='wrapper' data-theme={theme}>
+        <div className={`wrapper ${theme}`}>
             <Routes>
                 <Route path={'/'} element={<MainLayout switchTheme={switchTheme} theme={theme}/>}>
                     <Route index element={<Navigate to={'movie'}/>}/>

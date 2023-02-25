@@ -3,7 +3,7 @@ const Skeleton = ({styleCard, amount}) => {
         <>
             {
                 [...Array(amount)].map((_, index) =>
-                    <div key={index} className={`${styleCard || 'css.movies__skeleton'} ${'css.card'}`}>Loading...</div>
+                    <div key={index} className={`${styleCard}`}>Loading...</div>
                 )
             }
         </>

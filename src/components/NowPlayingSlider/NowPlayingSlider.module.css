@@ -20,7 +20,7 @@
 
 .shows__movie, .shows__skeleton {
     max-width: 500px;
-    height: 735px;
+    height: 400px;
     background-size: cover;
     padding: 15px;
 }
@@ -30,8 +30,8 @@
 }
 
 .shows__skeleton {
-    background-color: #3a3a3a;
-    box-shadow: 0 0 15px 4px rgba(58, 58, 58, 0.27);
+    background-color: #fec356;
+    box-shadow: 0 0 15px 4px rgb(255, 197, 2);
 }
 
 .shows__title {
@@ -45,6 +45,7 @@
 
 .title {
     font-size: 24px;
+    align-self: center;
 }
 
 .title:hover, .title:focus, .title:active {

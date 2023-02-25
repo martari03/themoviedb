@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import {Navigation} from "swiper";
+import {Autoplay, Navigation} from "swiper";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {useDispatch, useSelector} from "react-redux";
 
@@ -33,10 +33,14 @@ const NowPlayingSlider = () => {
                 </h3>
                 <ul className={`${css.shows__movies} ${releases.releases__movies}`}>
                     <Swiper
+                        slidesPerView={5.5}
+                        spaceBetween={60}
                         loop={true}
                         navigation={true}
-                        slidesPerView={3.1}
-                        modules={[Navigation]}>
+                        autoplay={{
+                            delay: 2500,
+                        }}
+                        modules={[Navigation, Autoplay]}>
 
                         {
                             results && results.map((movie) =>

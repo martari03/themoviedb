@@ -24,12 +24,12 @@
 }
 
 .movies__item {
-    box-shadow: 0 0 22px 4px rgba(0, 232, 220, 0.27);
+    box-shadow: 0 0 22px 4px rgb(229, 203, 30);
     transition: all 0.5s;
 }
 
 .movies__item:hover {
-    box-shadow: 0 0 22px 4px rgba(151, 24, 162, 0.27);
+    box-shadow: 0 0 22px 4px rgb(237, 237, 239);
 }
 
 .movies__wrapper {
@@ -44,15 +44,15 @@
 
 .movies :global(.MuiButtonBase-root) {
     background-color: #3a3a3a;
-    color: #00F1FFFF;
+    color: #F3DF0F;
     font-size: 20px;
     min-width: 50px;
     height: 50px;
 }
 
 .movies__skeleton {
-    color: #00F1FFFF;
-    background-color: rgba(0, 232, 220, 0.27);
-    box-shadow: 0 0 22px 4px rgba(0, 232, 220, 0.27);
+    color: #f9ed05;
+    background-color: #f1dd0f;
+    box-shadow: 0 0 22px 4px #e7cd1e;
     font-size: 18px;
 }

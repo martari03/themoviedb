@@ -33,7 +33,7 @@ const Header = ({switchTheme, theme}) => {
                         </Link>
                         <button className={css.header__btn} onClick={switchTheme}>
                             <img width={40} height={40} src={theme === 'light' ?
-                                sun : moon} alt=""/>
+                                moon : sun} alt=""/>
                         </button>
                     </nav>
                 </div>
