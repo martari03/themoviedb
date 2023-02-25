@@ -1,0 +1,63 @@
+.movie {
+    padding: 125px 0 50px 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: #ffffff;
+}
+
+.movie__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 50px;
+    background-color: rgba(29, 29, 29, 0.7);
+    height: 75vh;
+    padding: 50px;
+    width: 95vw;
+}
+
+.movie__video {
+    transition: opacity 0.5s;
+}
+
+.movie__video:hover {
+    opacity: 0.8;
+}
+
+.movie__info {
+    max-width: 465px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 10px;
+}
+
+.movie__title {
+    font-size: 32px;
+}
+
+.movie__date, .movie__country, .movie__more, .movie__genre {
+    display: flex;
+    grid-gap: 10px;
+    align-items: center;
+}
+
+.movie__line {
+    position: relative;
+}
+
+.movie__line:not(:last-child)::after {
+    content: ' ';
+    position: absolute;
+    right: -7px;
+    top: -1px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1vh;
+    align-items: center;
+    justify-content: center;
+}

@@ -9,6 +9,9 @@ import {MovieListCard} from "../MovieListCard/MovieListCard";
 import {GenresFilter} from "../GenresFilter/GenresFilter";
 import {moviesCategories, movieService} from "../../services";
 
+import css from './MovieList.module.css';
+import app from '../../App.css';
+
 const MovieList = () => {
     const dispatch = useDispatch();
     const {genres} = useSelector(state => state.genres);
@@ -55,18 +58,18 @@ const MovieList = () => {
     const filteredMovies = results && results.filter(movie => movie.title.toLowerCase().includes(searchValue.toLowerCase()))
 
     return (
-        <section className={'css.movies'}>
-            <div className={'css.container'}>
-                <div className={'css.movies__inner'}>
-                    <h3 className={`${'css.movies__title'} ${'css.category'}`}>
+        <section className={css.movies}>
+            <div className={app.container}>
+                <div className={css.movies__inner}>
+                    <h3 className={`${css.movies__title} ${app.category}`}>
                         All Movies
                     </h3>
-                    <div className={'css.movies__wrapper'}>
+                    <div className={css.movies__wrapper}>
                         <GenresFilter/>
                         <Search/>
                     </div>
                 </div>
-                <ul className={'css.movies__items'}>
+                <ul className={css.movies__items}>
                     {
                         isLoading ?
                             results && filteredMovies.map((movie) =>
@@ -78,7 +81,7 @@ const MovieList = () => {
                                     key={movie.id}
                                     movie={movie}
                                     genres={genres.genres}
-                                    styleCard={'css.movies__item'}
+                                    styleCard={css.movies__item}
                                 />)
                     }
                 </ul>

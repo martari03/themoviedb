@@ -4,6 +4,8 @@ import {GenreBadge} from "../GenreBadge/GenreBadge";
 import {StarsRating} from "../StarsRating/StarsRating";
 import {urls} from "../../configs";
 
+import css from './MovieListCard.module.css';
+
 const MovieListCard = ({
                            styleCard,
                            styleGenre,
@@ -16,21 +18,19 @@ const MovieListCard = ({
     return (
         <div>
             {
-                poster_path ?
-                    <li>
-                        <Link className={`${'css.card'} ${styleCard}`} to={`${id}`}
-                              style={{backgroundImage: `url(${img})`}}>
-                            <div className={'css.card__wrapper'}>
-                                <GenreBadge styleGenre={styleGenre} genreIds={genre_ids} genres={genres}/>
-                                <StarsRating value={vote_average}/>
-                                <h3 className={`${'css.title'} ${`${styleTitle}` || ' css.card__title'}`}>
-                                    {title}
-                                </h3>
-                            </div>
-                        </Link>
+                poster_path &&
+                <li>
+                    <Link className={`${css.card} ${styleCard}`} to={`${id}`}
+                          style={{backgroundImage: `url(${img})`}}>
+                        <div className={css.card__wrapper}>
+                            <GenreBadge styleGenre={styleGenre} genreIds={genre_ids} genres={genres}/>
+                            <StarsRating value={vote_average}/>
+                            <h3 className={`${css.title} ${`${styleTitle}` || css.card__title}`}>
+                                {title}
+                            </h3>
+                        </div>
+                    </Link>
                     </li>
-                    :
-                    ''
             }
         </div>
     );

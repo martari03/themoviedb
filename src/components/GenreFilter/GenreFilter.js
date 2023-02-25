@@ -2,6 +2,9 @@ import {useDispatch} from "react-redux";
 
 import {searchActions} from "../../redux";
 
+import css from './GenreFilter.module.css';
+import genreCSS from '../GenreBadge/GenreBadge.module.css';
+
 const GenreFilter = ({genre}) => {
     const {id, name} = genre;
 
@@ -10,7 +13,7 @@ const GenreFilter = ({genre}) => {
     return (
         <li>
             <button
-                className={`${'css.filter__item'} ${'css.genre'}`}
+                className={`${css.filter__item} ${genreCSS.genre}`}
                 onClick={() => dispatch(searchActions.setGenre(id))}
                 type={'button'}
             >

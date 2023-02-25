@@ -19,9 +19,8 @@ const App = () => {
             <Routes>
                 <Route path={'/'} element={<MainLayout switchTheme={switchTheme} theme={theme}/>}>
                     <Route index element={<Navigate to={'movie'}/>}/>
-                    <Route path={'movie'} element={<MoviesPage/>}>
-                        <Route path={':movieId'} element={<MovieInfoPage/>}/>
-                    </Route>
+                    <Route path={'movie'} element={<MoviesPage/>}/>
+                    <Route path={'movie/:movieId'} element={<MovieInfoPage/>}/>
                     <Route path={'*'} element={<NotFoundPage/>}/>
                 </Route>
             </Routes>

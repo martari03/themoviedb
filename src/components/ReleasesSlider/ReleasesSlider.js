@@ -3,9 +3,8 @@ import {Autoplay, Navigation} from "swiper";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {useDispatch, useSelector} from "react-redux";
 
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
+import css from './RelesesSlider.module.css';
+import app from '../../App.css';
 
 import {genreActions, movieActions} from "../../redux";
 import {Skeleton} from "../Skeleton/Skeleton";
@@ -26,10 +25,12 @@ const ReleasesSlider = () => {
     }, [dispatch]);
 
     return (
-        <section className={'css.releases'}>
-            <div className={'css.container'}>
-                <div className={'css.category'}>New releases</div>
-                <ul className={'css.releases__movies'}>
+        <section className={css.releases}>
+            <div className={app.container}>
+                <h3 className={`${css.title} ${app.category}`}>
+                    New Releases
+                </h3>
+                <ul className={css.releases__movies}>
                     <Swiper
                         slidesPerView={5.5}
                         spaceBetween={60}
@@ -44,7 +45,7 @@ const ReleasesSlider = () => {
                             genres && results && results.map((movie) =>
                                 <SwiperSlide key={movie.id} virtualIndex={movie.id}>
                                     {isLoading ?
-                                        <Skeleton key={movie.id} amount={1} styleCard={'css.releases__skeleton'}/>
+                                        <Skeleton key={movie.id} amount={1} styleCard={css.releases__skeleton}/>
                                         :
                                         <MovieListCard key={movie.id} movie={movie} genres={genres.genres}/>
                                     }

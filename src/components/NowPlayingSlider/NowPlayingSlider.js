@@ -8,7 +8,12 @@ import {moviesCategories} from "../../services";
 import {MovieListCard} from "../MovieListCard/MovieListCard";
 import {genreActions, movieActions} from "../../redux";
 
-const ShowsSlider = () => {
+import genreCSS from '../GenreBadge/GenreBadge.module.css';
+import css from './NowPlayingSlider.module.css';
+import app from '../../App.css';
+import releases from '../../components/ReleasesSlider/RelesesSlider.module.css';
+
+const NowPlayingSlider = () => {
     const dispatch = useDispatch();
     const {moviesNowPlaying, isLoading} = useSelector(state => state.movies);
     const {genres} = useSelector(state => state.genres);
@@ -21,12 +26,12 @@ const ShowsSlider = () => {
     }, [dispatch]);
 
     return (
-        <section className={'css.shows'}>
-            <div className={'css.container'}>
-                <div className={'css.category'}>
-                    Now playing
-                </div>
-                <ul className={`${'css.shows__movies'} ${'css.releases__movies'}`}>
+        <section className={css}>
+            <div className={app.container}>
+                <h3 className={`${css.title} ${app.category}`}>
+                    Now Playing
+                </h3>
+                <ul className={`${css.shows__movies} ${releases.releases__movies}`}>
                     <Swiper
                         loop={true}
                         navigation={true}
@@ -37,13 +42,13 @@ const ShowsSlider = () => {
                             results && results.map((movie) =>
                                 <SwiperSlide key={movie.id} virtualIndex={movie.id}>
                                     {isLoading ?
-                                        <Skeleton key={movie.id} amount={1} styleCard={'css.shows__skeleton'}/>
+                                        <Skeleton key={movie.id} amount={1} styleCard={css.shows__skeleton}/>
                                         :
                                         <MovieListCard key={movie.id}
                                                        movie={movie}
-                                                       styleCard={'css.shows__movie'}
-                                                       styleTitle={'css.shows__title'}
-                                                       styleGenre={'css.shows__genre'}
+                                                       styleCard={css.shows__movie}
+                                                       styleTitle={css.shows__title}
+                                                       styleGenre={genreCSS.showGenre}
                                                        genres={genres.genres}/>
                                     }
                                 </SwiperSlide>
@@ -56,4 +61,4 @@ const ShowsSlider = () => {
     );
 };
 
-export {ShowsSlider};
+export {NowPlayingSlider};

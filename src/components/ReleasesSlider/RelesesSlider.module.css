@@ -1,0 +1,51 @@
+.releases__movies {
+    position: relative;
+}
+
+.releases__movies::after {
+    content: '';
+    width: 100%;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.releases__movies :global(.swiper-slide) {
+    min-width: 290px;
+    display: block;
+}
+
+.releases__movies :global(.swiper-button-prev), .releases__movies :global(.swiper-button-next) {
+    transition: opacity 0.5s;
+    z-index: 10;
+}
+
+.releases__movies :global(.swiper-button-prev)::after, .releases__movies :global(.swiper-button-next)::after {
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.releases__movies :global(.swiper-button-prev):hover, .releases__movies :global(.swiper-button-next):hover, .releases__movies :global(.swiper-button-prev):focus, .releases__movies :global(.swiper-button-next):focus, .releases__movies :global(.swiper-button-prev):active, .releases__movies :global(.swiper-button-next):active {
+    opacity: 0.5;
+}
+
+.releases :global(.swiper-button-next) {
+    right: 75px;
+}
+
+.releases__skeleton {
+    background-color: #3a3a3a;
+    box-shadow: 0 0 15px 4px rgba(58, 58, 58, 0.27);
+}
+
+.title {
+    font-size: 24px;
+}
+
+.title:hover, .title:focus, .title:active {
+    opacity: 1;
+}

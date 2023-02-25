@@ -1,9 +1,13 @@
 import {useEffect, useState} from "react";
-import {Link, useNavigate, useParams} from "react-router-dom";
+import {useSelector} from "react-redux";
+import {useNavigate, useParams} from "react-router-dom";
 
 import {movieService} from "../../services";
-import {StarsRating} from "../../components";
+import {GenreBadge, PosterPreview, StarsRating} from "../../components";
 import {urls} from "../../configs";
+import {Trailer} from "../Trailer/Trailer";
+
+import css from './MovieInfo.module.css';
 
 const MovieInfo = () => {
     const {movieId} = useParams();
@@ -13,6 +17,9 @@ const MovieInfo = () => {
     const [video, setVideo] = useState([]);
 
     const img = `${urls.imgBase}original/${movie && movie.backdrop_path}`;
+
+    const {genres} = useSelector(state => state.genres);
+    const mGenres = genres.genres;
 
     const movies = movie && movie;
 
@@ -28,66 +35,51 @@ const MovieInfo = () => {
 
     return (
         <div>
-            <Link to={'/'}>Back</Link>
             {
                 video.length !== 0 ?
-                    <section className={'css.movie'} style={{backgroundImage: `url(${img})`}}>
-                        <div className={'css.container'}>
-                            <div className={'css.movie__wrapper'}>
-                                <div className={'css.movie__info'}>
-                                    <h3 className={'css.movie__title'}>
+                    <section className={css.movie} style={{backgroundImage: `url(${img})`}}>
+                        <div className={css.container}>
+                            <div className={css.movie__wrapper}>
+                                <PosterPreview poster_path={movies.poster_path}/>
+                                <div className={css.movie__info}>
+                                    <h3 className={css.movie__title}>
                                         {movies.title}
                                     </h3>
-                                    <div className={'css.movie__date'}>
-                                        <span className={'css.movie__line'}>Year: {movies.release_date}</span>
-                                        <span className={'css.movie__line'}>Time: {movies.runtime} min</span>
-                                        <span className={'css.movie__line'}>Adult: {movies.adult ? '18+' : '12+'}</span>
+                                    <div className={css.movie__date}>
+                                        <span className={css.movie__line}>Year: {movies.release_date}</span>
+                                        <span className={css.movie__line}>Time: {movies.runtime} min</span>
+                                        <span className={css.movie__line}>Adult: {movies.adult ? '18+' : '12+'}</span>
                                     </div>
-                                    <div className={'css.movie__more'}>
-                                        <span className={'css.movie__country'}>Countries:</span>
+                                    <div className={css.movie__more}>
+                                        <span className={css.movie__country}>Countries:</span>
                                         {
-                                            movies.production_countries.map((country, index) =>
-                                                    <span className={'css.movie__line'} key={index}>
+                                            movies.production_countries.length !== 0 ? movies.production_countries.map((country, index) =>
+                                                    <span className={css.movie__line} key={index}>
                                                 {country.iso_3166_1}
                                         </span>
-                                            )
+                                            ) : 'Unknown'
                                         }
                                     </div>
-                                    <div className={'css.movie__more'}>
-                                        <span className={'css.movie__genre'}>Genres:</span>
+                                    <div className={css.movie__more}>
+                                        <span className={css.movie__genre}>Genres:</span>
                                         {
                                             movies.genres.map(genre =>
-                                                    <span className={'css.movie__line'} key={genre.id}>
-                                            {genre.name}
-                                        </span>
+                                                    <span className={css.movie__line} key={genre.id}>
+                                        <GenreBadge genres={mGenres}
+                                                    genreIds={[genre.id]}/>
+                                                    </span>
                                             )
                                         }
                                     </div>
                                     <StarsRating value={movies.vote_average}/>
-                                    <div className={"movie__overview"}>
+                                    <div className={css.movie__overview}>
                                         <p>
                                             {movies.overview}
                                         </p>
                                     </div>
                                 </div>
                             </div>
-                            <div className={'css.movie__video'}>
-                                {video[0].key && video ?
-                                    <iframe width={720} height={405}
-                                            src={`https://www.youtube.com/embed/${video[0].key}`}
-                                            title="YouTube
-                                                 video player" allow="accelerometer; autoplay; clipboard-write;
-                                                 encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
-                                    </iframe>
-                                    :
-                                    <iframe width={720} height={405}
-                                            src={'https://www.youtube.com/embed/aDm5WZ3QiIE'}
-                                            title="YouTube
-                                                video player" allow="accelerometer; autoplay; clipboard-write;
-                                                encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
-                                    </iframe>
-                                }
-                            </div>
+                            <Trailer video={video}/>
                         </div>
                     </section>
                     :

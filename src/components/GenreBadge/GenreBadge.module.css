@@ -1,0 +1,23 @@
+.cardGenre {
+    justify-content: center;
+    max-width: 60px;
+    width: 100%;
+}
+
+.genre {
+    color: #00F1FFFF;
+    font-size: 16px;
+    padding: 5px 8px;
+    border-radius: 0 8px;
+    background: rgba(29, 29, 29, 0.5);
+    max-width: 130px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.showGenre {
+    max-width: 130px;
+    font-size: 16px;
+}

@@ -1,0 +1,8 @@
+.filter {
+    display: flex;
+    grid-gap: 10px;
+    flex-wrap: wrap;
+    max-width: 875px;
+    width: auto;
+    padding: 0;
+}

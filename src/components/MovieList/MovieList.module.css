@@ -1,0 +1,58 @@
+.movies__inner {
+    padding: 25px 10px;
+}
+
+.movies__title {
+    font-size: 24px;
+}
+
+.movies__title:hover, .movies__title:focus, .movies__title:active {
+    opacity: 1;
+}
+
+.movies__title:hover::after, .movies__title:focus::after, .movies__title:active::after {
+    transform: translateX(0);
+}
+
+.movies__items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 290px);
+    grid-template-rows: repeat(auto-fill, 440px);
+    grid-gap: 35px 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.movies__item {
+    box-shadow: 0 0 22px 4px rgba(0, 232, 220, 0.27);
+    transition: all 0.5s;
+}
+
+.movies__item:hover {
+    box-shadow: 0 0 22px 4px rgba(151, 24, 162, 0.27);
+}
+
+.movies__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.movies :global(.MuiPagination-ul) {
+    justify-content: center;
+}
+
+.movies :global(.MuiButtonBase-root) {
+    background-color: #3a3a3a;
+    color: #00F1FFFF;
+    font-size: 20px;
+    min-width: 50px;
+    height: 50px;
+}
+
+.movies__skeleton {
+    color: #00F1FFFF;
+    background-color: rgba(0, 232, 220, 0.27);
+    box-shadow: 0 0 22px 4px rgba(0, 232, 220, 0.27);
+    font-size: 18px;
+}
