@@ -72,7 +72,7 @@ const MovieInfo = () => {
                                         }
                                     </div>
                                     <StarsRating value={movies.vote_average}/>
-                                    <div className={css.movie__overview}>
+                                    <div className={"movie__overview"}>
                                         <p>
                                             {movies.overview}
                                         </p>

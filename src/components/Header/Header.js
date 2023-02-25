@@ -13,7 +13,7 @@ const Header = ({switchTheme, theme}) => {
         <header className={css.header}>
             <div className={css.container}>
                 <div className={css.header__inner}>
-                    <Link className={css.header__logo} to={"/"}>
+                    <Link className={css.header__logo} to={"/movie"}>
                         <svg width={56} height={56}
                              xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 0 512 512" fill="#FFFFFF">
@@ -23,7 +23,7 @@ const Header = ({switchTheme, theme}) => {
                     </Link>
                     <nav className={css.header__nav}>
                         <UserInfo/>
-                        <Link className={css.header__icon} to="/">
+                        <Link className={css.header__icon} to="/movie">
                             <svg width={40} height={40}
                                  xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 576 512" fill="#FFFFFF">
