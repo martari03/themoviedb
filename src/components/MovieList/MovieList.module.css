@@ -4,6 +4,7 @@
 
 .movies__title {
     font-size: 24px;
+    color: #e7cd1e;
 }
 
 .movies__title:hover, .movies__title:focus, .movies__title:active {
