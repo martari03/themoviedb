@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
-import {useNavigate, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 
 import {movieService} from "../../services";
 import {GenreBadge, PosterPreview, StarsRating} from "../../components";
@@ -11,7 +11,6 @@ import css from './MovieInfo.module.css';
 
 const MovieInfo = () => {
     const {movieId} = useParams();
-    const navigate = useNavigate();
 
     const [movie, setMovie] = useState(null);
     const [video, setVideo] = useState([]);
