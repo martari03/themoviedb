@@ -46,8 +46,8 @@
     line-height: 2;
 }
 
-.mainScreen .swiper-button-prev, .mainScreen .swiper-button-next {
-    color: white;
+.mainScreen :global(.swiper-button-prev), .mainScreen :global(.swiper-button-next) {
+    color: #e7cd1e;
     transition: opacity 0.5s;
 }
 
@@ -61,7 +61,7 @@
 }
 
 .mainScreen :global(.swiper-pagination-bullet) {
-    background-color: white;
+    background-color: #e7cd1e;
     transition: opacity 0.5s;
 }
 

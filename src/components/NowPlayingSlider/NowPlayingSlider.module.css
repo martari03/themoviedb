@@ -4,18 +4,18 @@
 }
 
 .shows__movies :global(.swiper-button-prev)::after, .shows__movies :global(.swiper-button-next)::after {
-    color: white;
+    color: #e7cd1e;
     font-size: 16px;
     font-weight: 800;
 }
 
+.shows__movies :global(.swiper-pagination-bullet) {
+    background-color: #e7cd1e;
+    transition: opacity 0.5s;
+}
 
 .shows__movies :global(.swiper-button-prev):hover, .shows__movies :global(.swiper-button-next):hover, .shows__movies :global(.swiper-button-prev):focus, .shows__movies :global(.swiper-button-next):focus, .shows__movies :global(.swiper-button-prev):active, .shows__movies :global(.swiper-button-next):active {
     opacity: 0.5;
-}
-
-.shows__movies :global(.swiper-button-next) {
-    right: 75px;
 }
 
 .shows__movie, .shows__skeleton {

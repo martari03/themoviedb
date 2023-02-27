@@ -19,9 +19,15 @@
     display: block;
 }
 
+.releases__movies :global(.swiper-pagination-bullet) {
+    background-color: #e7cd1e;
+    transition: opacity 0.5s;
+}
+
 .releases__movies :global(.swiper-button-prev), .releases__movies :global(.swiper-button-next) {
     transition: opacity 0.5s;
     z-index: 10;
+    color: #e7cd1e;
 }
 
 .releases__movies :global(.swiper-button-prev)::after, .releases__movies :global(.swiper-button-next)::after {
@@ -31,10 +37,6 @@
 
 .releases__movies :global(.swiper-button-prev):hover, .releases__movies :global(.swiper-button-next):hover, .releases__movies :global(.swiper-button-prev):focus, .releases__movies :global(.swiper-button-next):focus, .releases__movies :global(.swiper-button-prev):active, .releases__movies :global(.swiper-button-next):active {
     opacity: 0.5;
-}
-
-.releases :global(.swiper-button-next) {
-    right: 75px;
 }
 
 .releases__skeleton {

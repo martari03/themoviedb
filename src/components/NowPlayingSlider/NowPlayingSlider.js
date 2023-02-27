@@ -30,7 +30,7 @@ const NowPlayingSlider = () => {
     }, [dispatch]);
 
     return (
-        <section className={css}>
+        <section>
             <div className={app.container}>
                 <h3 className={`${css.title} ${app.category}`}>
                     Now Playing

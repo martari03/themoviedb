@@ -12,6 +12,8 @@ import {moviesCategories} from "../../services";
 import {MainSlide} from "../MainSlide/MainSlide";
 import {genreActions, movieActions} from "../../redux";
 
+import css from './MainSlider.module.css';
+
 const MainSlider = () => {
     const dispatch = useDispatch();
     const {moviesTopRate, isLoading} = useSelector(state => state.movies);
@@ -25,7 +27,7 @@ const MainSlider = () => {
     }, [dispatch]);
 
     return (
-        <section className={'css.mainScreen'}>
+        <section className={css.mainScreen}>
             <ul>
                 <Swiper
                     slidesPerView={1}
@@ -43,7 +45,7 @@ const MainSlider = () => {
                         results && results.map((movie, index) =>
                             <SwiperSlide key={movie.id} virtualIndex={movie.id}>
                                 {isLoading ?
-                                    <Skeleton key={index} amount={1} styleCard={'css.mainScreen__skeleton'}/>
+                                    <Skeleton key={index} amount={1} styleCard={css.mainScreen__skeleton}/>
                                     :
                                     <MainSlide key={movie.id} movie={movie} genres={genres.genres}/>
                                 }
