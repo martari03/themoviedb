@@ -1,10 +1,14 @@
 import {useEffect} from "react";
-import {Autoplay, Navigation} from "swiper";
+import {Autoplay, Navigation, Pagination} from "swiper";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {useDispatch, useSelector} from "react-redux";
 
 import css from './RelesesSlider.module.css';
 import app from '../../App.css';
+
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 import {genreActions, movieActions} from "../../redux";
 import {Skeleton} from "../Skeleton/Skeleton";
@@ -39,7 +43,10 @@ const ReleasesSlider = () => {
                         autoplay={{
                             delay: 2500,
                         }}
-                        modules={[Navigation, Autoplay]}>
+                        pagination={{
+                            clickable: true,
+                        }}
+                        modules={[Navigation, Autoplay, Pagination]}>
 
                         {
                             genres && results && results.map((movie) =>

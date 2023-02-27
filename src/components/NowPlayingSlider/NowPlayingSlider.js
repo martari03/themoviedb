@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import {Autoplay, Navigation} from "swiper";
+import {Autoplay, Navigation, Pagination} from "swiper";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {useDispatch, useSelector} from "react-redux";
 
@@ -7,6 +7,10 @@ import {Skeleton} from "../Skeleton/Skeleton";
 import {moviesCategories} from "../../services";
 import {MovieListCard} from "../MovieListCard/MovieListCard";
 import {genreActions, movieActions} from "../../redux";
+
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 import genreCSS from '../GenreBadge/GenreBadge.module.css';
 import css from './NowPlayingSlider.module.css';
@@ -40,7 +44,10 @@ const NowPlayingSlider = () => {
                         autoplay={{
                             delay: 2500,
                         }}
-                        modules={[Navigation, Autoplay]}>
+                        pagination={{
+                            clickable: true,
+                        }}
+                        modules={[Navigation, Autoplay, Pagination]}>
 
                         {
                             results && results.map((movie) =>
