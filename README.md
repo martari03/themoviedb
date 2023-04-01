@@ -6,10 +6,10 @@ It the React project where I use themoviedb API and Redux.
 
 ### The main page view in light and dark themes
 
-<div align="center" style="display: flex; column-gap: 4vw; align-items: center; justify-content: space-evenly">
 <img src="screenshots/movies-light.png" alt="movies-light">
+
 <img src="screenshots/movies-dark.png" alt="movies-dark">
-</div>
+
 
 You can see list of all movies some swippers with new
 releases or now playing. You can search the movie by yourself or filter them by genres. Also, you can change the theme.
