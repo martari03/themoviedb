@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-It the React project where I use themoviedb API and Redux.
+In this React project I use themoviedb API and Redux.
 
 ### The main page view in light and dark themes
 
